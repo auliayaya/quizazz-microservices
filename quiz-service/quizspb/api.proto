@@ -1,0 +1,55 @@
+syntax = "proto3";
+package quizspb;
+
+service QuizsService {
+  rpc CreateQuiz(CreateQuizRequest) returns (CreateQuizResponse) {};
+  rpc EnableQuiz(EnableQuizRequest) returns (EnableQuizResponse) {};
+  rpc DisableQuiz(DisableQuizRequest) returns (DisableQuizResponse) {};
+  rpc ChangeEmail(ChangeEmailRequest) returns (ChangeEmailResponse) {};
+  rpc AuthorizeQuiz(AuthorizeQuizRequest) returns (AuthorizeQuizResponse) {};
+  rpc GetQuiz(GetQuizRequest) returns (GetQuizResponse) {};
+}
+
+message Quiz {
+  string id = 1;
+  string name = 2;
+  string quizType = 3;
+  bool enabled = 4;
+}
+
+message CreateQuizRequest {
+  string name = 1;
+  string quizType = 2;
+}
+message CreateQuizResponse {
+  string id = 1;
+}
+
+message EnableQuizRequest {
+  string id = 1;
+}
+message EnableQuizResponse {}
+
+message DisableQuizRequest {
+  string id = 1;
+}
+message DisableQuizResponse {}
+
+message ChangeEmailRequest {
+  string id = 1;
+  string quizType = 2;
+}
+
+message ChangeEmailResponse {}
+
+message AuthorizeQuizRequest {
+  string id = 1;
+}
+message AuthorizeQuizResponse {}
+
+message GetQuizRequest {
+  string id = 1;
+}
+message GetQuizResponse {
+  Quiz quiz = 1;
+}

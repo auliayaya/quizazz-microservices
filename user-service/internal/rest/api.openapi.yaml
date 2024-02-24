@@ -1,0 +1,39 @@
+openapiOptions:
+  file:
+    - file: "quizspb/api.proto"
+      option:
+        info:
+          title: Users
+          version: "1.0.0"
+        basePath: /
+  method:
+    - method: quizspb.UsersService.RegisterUser
+      option:
+        operationId: registerUser
+        tags:
+          - User
+        summary: Register a new user
+    - method: quizspb.UsersService.ChangeEmail
+      option:
+        operationId: changeEmail
+        tags:
+          - User
+        summary: Change a users Email
+    - method: quizspb.UsersService.EnableUser
+      option:
+        operationId: enableUser
+        tags:
+          - User
+        summary: Enable a user
+    - method: quizspb.UsersService.DisableUser
+      option:
+        operationId: DisableUser
+        tags:
+          - User
+        summary: Disable a user
+    - method: quizspb.UsersService.GetUser
+      option:
+        operationId: getUser
+        tags:
+          - User
+        summary: Get a user

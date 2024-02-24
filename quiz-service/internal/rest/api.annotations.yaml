@@ -1,0 +1,18 @@
+type: google.api.Service
+config_version: 3
+http:
+  rules:
+    - selector: quizspb.QuizsService.CreateQuiz
+      post: /api/quizs
+      body: "*"
+    - selector: quizspb.QuizsService.ChangeEmail
+      put: /api/quizs/{id}/change-email
+      body: "*"
+    - selector: quizspb.QuizsService.EnableQuiz
+      put: /api/quizs/{id}/enable
+      body: "*"
+    - selector: quizspb.QuizsService.DisableQuiz
+      put: /api/quizs/{id}/disable
+      body: "*"
+    - selector: quizspb.QuizsService.GetQuiz
+      get: /api/quizs/{id}

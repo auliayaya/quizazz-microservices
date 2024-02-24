@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package quizspb;
+
+// events
+
+message QuizCreated {
+  string id = 1;
+  string name = 2;
+  string quizType = 3;
+}
+
+message QuizEmailChanged {
+  string id = 1;
+  string quizType = 2;
+}
+
+message QuizEnabled {
+  string id = 1;
+}
+
+message QuizDisabled {
+  string id = 1;
+}
+
+// commands
+
+message AuthorizeQuiz {
+  string id = 1;
+}

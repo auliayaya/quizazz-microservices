@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package userspb;
+
+// events
+
+message UserRegistered {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message UserEmailChanged {
+  string id = 1;
+  string email = 2;
+}
+
+message UserEnabled {
+  string id = 1;
+}
+
+message UserDisabled {
+  string id = 1;
+}
+
+// commands
+
+message AuthorizeUser {
+  string id = 1;
+}

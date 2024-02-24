@@ -1,0 +1,18 @@
+type: google.api.Service
+config_version: 3
+http:
+  rules:
+    - selector: quizspb.UsersService.RegisterUser
+      post: /api/users
+      body: "*"
+    - selector: quizspb.UsersService.ChangeEmail
+      put: /api/users/{id}/change-email
+      body: "*"
+    - selector: quizspb.UsersService.EnableUser
+      put: /api/users/{id}/enable
+      body: "*"
+    - selector: quizspb.UsersService.DisableUser
+      put: /api/users/{id}/disable
+      body: "*"
+    - selector: quizspb.UsersService.GetUser
+      get: /api/users/{id}

@@ -1,0 +1,39 @@
+openapiOptions:
+  file:
+    - file: "quizspb/api.proto"
+      option:
+        info:
+          title: Quizs
+          version: "1.0.0"
+        basePath: /
+  method:
+    - method: quizspb.QuizsService.CreateQuiz
+      option:
+        operationId: registerQuiz
+        tags:
+          - Quiz
+        summary: Create a new quiz
+    - method: quizspb.QuizsService.ChangeEmail
+      option:
+        operationId: changeEmail
+        tags:
+          - Quiz
+        summary: Change a quizs Email
+    - method: quizspb.QuizsService.EnableQuiz
+      option:
+        operationId: enableQuiz
+        tags:
+          - Quiz
+        summary: Enable a quiz
+    - method: quizspb.QuizsService.DisableQuiz
+      option:
+        operationId: DisableQuiz
+        tags:
+          - Quiz
+        summary: Disable a quiz
+    - method: quizspb.QuizsService.GetQuiz
+      option:
+        operationId: getQuiz
+        tags:
+          - Quiz
+        summary: Get a quiz

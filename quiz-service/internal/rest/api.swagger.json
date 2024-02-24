@@ -1,0 +1,302 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Quizs",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "QuizsService"
+    }
+  ],
+  "basePath": "/",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/quizs": {
+      "post": {
+        "summary": "Create a new quiz",
+        "operationId": "registerQuiz",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/quizspbCreateQuizResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/quizspbCreateQuizRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Quiz"
+        ]
+      }
+    },
+    "/api/quizs/{id}": {
+      "get": {
+        "summary": "Get a quiz",
+        "operationId": "getQuiz",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/quizspbGetQuizResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Quiz"
+        ]
+      }
+    },
+    "/api/quizs/{id}/change-email": {
+      "put": {
+        "summary": "Change a quizs Email",
+        "operationId": "changeEmail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/quizspbChangeEmailResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QuizsServiceChangeEmailBody"
+            }
+          }
+        ],
+        "tags": [
+          "Quiz"
+        ]
+      }
+    },
+    "/api/quizs/{id}/disable": {
+      "put": {
+        "summary": "Disable a quiz",
+        "operationId": "DisableQuiz",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/quizspbDisableQuizResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QuizsServiceDisableQuizBody"
+            }
+          }
+        ],
+        "tags": [
+          "Quiz"
+        ]
+      }
+    },
+    "/api/quizs/{id}/enable": {
+      "put": {
+        "summary": "Enable a quiz",
+        "operationId": "enableQuiz",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/quizspbEnableQuizResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QuizsServiceEnableQuizBody"
+            }
+          }
+        ],
+        "tags": [
+          "Quiz"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "QuizsServiceChangeEmailBody": {
+      "type": "object",
+      "properties": {
+        "quizType": {
+          "type": "string"
+        }
+      }
+    },
+    "QuizsServiceDisableQuizBody": {
+      "type": "object"
+    },
+    "QuizsServiceEnableQuizBody": {
+      "type": "object"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "quizspbAuthorizeQuizResponse": {
+      "type": "object"
+    },
+    "quizspbChangeEmailResponse": {
+      "type": "object"
+    },
+    "quizspbCreateQuizRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "quizType": {
+          "type": "string"
+        }
+      }
+    },
+    "quizspbCreateQuizResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "quizspbDisableQuizResponse": {
+      "type": "object"
+    },
+    "quizspbEnableQuizResponse": {
+      "type": "object"
+    },
+    "quizspbGetQuizResponse": {
+      "type": "object",
+      "properties": {
+        "quiz": {
+          "$ref": "#/definitions/quizspbQuiz"
+        }
+      }
+    },
+    "quizspbQuiz": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "quizType": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

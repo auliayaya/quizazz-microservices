@@ -1,0 +1,55 @@
+syntax = "proto3";
+package userspb;
+
+service UsersService {
+  rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse) {};
+  rpc EnableUser(EnableUserRequest) returns (EnableUserResponse) {};
+  rpc DisableUser(DisableUserRequest) returns (DisableUserResponse) {};
+  rpc ChangeEmail(ChangeEmailRequest) returns (ChangeEmailResponse) {};
+  rpc AuthorizeUser(AuthorizeUserRequest) returns (AuthorizeUserResponse) {};
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {};
+}
+
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  bool enabled = 4;
+}
+
+message RegisterUserRequest {
+  string name = 1;
+  string email = 2;
+}
+message RegisterUserResponse {
+  string id = 1;
+}
+
+message EnableUserRequest {
+  string id = 1;
+}
+message EnableUserResponse {}
+
+message DisableUserRequest {
+  string id = 1;
+}
+message DisableUserResponse {}
+
+message ChangeEmailRequest {
+  string id = 1;
+  string email = 2;
+}
+
+message ChangeEmailResponse {}
+
+message AuthorizeUserRequest {
+  string id = 1;
+}
+message AuthorizeUserResponse {}
+
+message GetUserRequest {
+  string id = 1;
+}
+message GetUserResponse {
+  User user = 1;
+}
